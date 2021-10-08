@@ -1,0 +1,3 @@
+Смотрим стили (CSS), видим странный параметр answer.
+
+Флаг: OmCTF{life_splitted_in_half}

@@ -1,0 +1,13 @@
+service pwn1
+{
+    disable         = no
+    type            = unlisted
+    wait            = no
+    socket_type     = stream
+    protocol        = tcp
+    user            = root
+    server          = /usr/bin/python3
+    server_args     = ~/k.py
+    port            = 10004
+    flags           = IPv4 REUSE
+}

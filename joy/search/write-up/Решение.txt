@@ -1,0 +1,5 @@
+Найти флаг в группе ВК - https://vk.com/omctf_sib_2021_autumn
+Находиться он в разделе "Доска/Discussion board"
+
+Название записи
+http://www.omctf.ru/pd4_d3cod3r - простой флаг для сдачи

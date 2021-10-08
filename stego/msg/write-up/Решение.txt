@@ -1,0 +1,5 @@
+Послушав файл, сразу понимаем, что это - Азбука Морзе.
+
+Онлайн-декодер - https://morsecode.world/international/decoder/audio-decoder-adaptive.html либо ручками.
+
+Декодируем, получаем флаг.

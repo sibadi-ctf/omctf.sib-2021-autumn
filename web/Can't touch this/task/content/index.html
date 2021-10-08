@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wanna flag, huh?</title>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+document.onkeypress=function(e){
+    document.getElementById("flag").innerText = "Nope!";
+}
+document.onmousedown=function(e){
+    document.getElementById("flag").innerText = "Nope!";
+}
+$(document).ready(function() {
+    var ctrlDown = false,
+        ctrlKey = 17,
+        cmdKey = 91,
+        vKey = 86,
+        cKey = 67;
+
+    $(document).keydown(function(e) {
+        if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = true;
+    }).keyup(function(e) {
+        if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = false;
+    });
+
+    $("#flag").keydown(function(e) {
+        if (ctrlDown && (e.keyCode == vKey || e.keyCode == cKey)) return false;
+    });
+    
+    $(document).keydown(function(e) {
+        if (ctrlDown && (e.keyCode == cKey)) document.getElementById("flag").innerText = "Nope!";
+        if (ctrlDown && (e.keyCode == vKey)) document.getElementById("flag").innerText = "Nope!";
+    });
+});
+</script>
+<p style="font-family: Comic Sans; color: grey; font-size: 150px;">
+<marquee id="flag">OmCTF{Ggam9i_U31_sUHk653n5sf2_HF1g61_jq83JvKfaj_G6q5a_FnSl6JjkkKq_5sjqAjFvS}</marquee>
+</p>
+</body>
+</html>

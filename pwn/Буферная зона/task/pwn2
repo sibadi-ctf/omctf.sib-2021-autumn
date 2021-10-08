@@ -1,0 +1,12 @@
+service pwn2
+{
+    disable         = no
+    type            = unlisted
+    wait            = no
+    socket_type     = stream
+    protocol        = tcp
+    user            = pwn2
+    server          = /home/pwn2/getflag
+    port            = 10005
+    flags           = IPv4 REUSE
+}

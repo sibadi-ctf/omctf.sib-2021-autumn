@@ -1,0 +1,48 @@
+В данном задании подразумевалось, что изучив исходник на php, игрок должен был вызвать ошибки в разных местах.
+
+<?php
+
+function stylishText($input_str) {
+	return "<body style=\"background-color: black;\"><h6 style=\"font-family: Brush Script MT;color: #E5C601;font-size: 70px;padding: 1em;position: absolute;top: 50%;left: 50%;margin-right: -50%;transform: translate(-50%, -50%);\">".$input_str."</h6></body>";
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+     echo stylishText("Just get it.");
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+     try {
+         $arr = [3,7,3,2,7,8,3,2,7,9];
+	 if(intval($_POST['data']) > 9 || intval($_POST['data']) < 0)
+		throw new Exception('bla bla bla, error, bla bla...');
+	 $k = $arr[intval($_POST['data'])];
+     } catch (Throwable $e) {
+         echo stylishText('█████████████');
+	 exit(0);
+     }
+     
+     try {
+         $_ = intdiv(65,intval(substr(hash("md5", $_POST['data']),0,14),16));
+     } catch (Throwable $e) {
+         echo stylishText('█████████████');
+	 exit(0);
+     }
+     
+     try {
+	 if (strlen($_POST['data']) > 50)
+             $_<<=substr($_POST['data'],50,52);
+     } catch (Throwable $e) {
+         echo stylishText('████████████');
+	 exit(0);
+     }
+}
+?>
+
+Первая ошибка вызывается указанием неправильного индекса массива.
+
+Вторая ошибка вызывается поиском строки, md5 хэш от которой имеет 14 нулей в начале. Это вызовет деление на ноль.
+
+Третья ошибка вызывается строкой, в которой 50 обычных ascii-символов, а затем однозначное отрицательное число. Это вызывает ошибку из-за попытки побитового сдвига на отрицательное число бит.
+
+Postmortem: из-за проблем с платформой, исходник на php не был прикреплён
+
+Флаг: OmCTF{sometimes_you_learn_from_errors}
